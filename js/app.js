@@ -109,9 +109,11 @@ form.addEventListener('submit' , function(e){
 
     // this function for hiding form and showing alert
     async function showAlert(){
+      document.body.style.overflowY = 'hidden';
       await fadeOut(300);
       form.classList.add('hidden');
       successAlert.classList.add('visible','fade-in');
+        document.body.style.overflowY = 'auto';
     }
 
     // fade out the form with async mode
