@@ -1,0 +1,108 @@
+@use "vars" as *;
+
+@use 'mixins' as *;
+
+.card {
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  transform: translateX(calc($card-width / 2));
+  @include sm-and-down {
+    width: 100%;
+    transform: none !important;
+    flex-direction: column-reverse;
+    padding-inline: 1rem;
+    padding-top: 2rem;
+    gap: 0;
+
+  }
+  .front,
+  .back {
+    width: $card-width;
+    @include sm-and-down{
+      width: 85%;
+
+    }
+  }
+
+  .front {
+    position: relative;
+    @include sm-and-down{
+      margin-top: -20.5%;
+      z-index: 10;
+    }
+    .data-wrapper {
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 1.5rem;
+    }
+    .circles {
+      width: 100%;
+      gap: 1rem;
+      @include sm-and-down{
+        gap: .5rem;
+        margin-bottom: 2rem;
+      }
+      .big-circle {
+        display: block;
+        background-color: white;
+        border-radius: 50%;
+        width: 2.5rem;
+        aspect-ratio: 1;
+        @include sm-and-down{
+          width: 2rem;
+        }
+      }
+      .small-circle {
+        border-radius: 50%;
+        background-color: transparent;
+        border: 2px solid white;
+        width: 1.16rem;
+        aspect-ratio: 1;
+        @include sm-and-down{
+          width: 1rem;
+        }
+      }
+    }
+    .data {
+      width: 100%;
+      gap: 1rem;
+      .card-number {
+        font-size: 1.69rem;
+        letter-spacing: 3px;
+        @include sm-and-down{
+          font-size: .92rem;
+        }
+      }
+      .data-bottom {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        @include sm-and-down{
+          font-size: .65rem;
+        }
+      }
+    }
+  }
+  .back {
+    position: relative;
+    margin-left: $card-spacing;
+    @include sm-and-down{
+      margin: 0;
+      align-self: end;
+    }
+    .cvc-card {
+      position: absolute;
+      right: 13%;
+      top: 45%;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      @include sm-and-down{
+        top: 45%;
+        font-size: .8rem;
+      }
+    }
+  }
+}

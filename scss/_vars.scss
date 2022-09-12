@@ -1,0 +1,15 @@
+// colors
+$white: hsl(0, 0%, 100%);
+$violet-1: hsl(270, 3%, 87%);
+$violet-2: hsl(279, 6%, 55%);
+$violet-3: hsl(278, 68%, 11%);
+$active-border: linear-gradient(
+  to right,
+  hsl(249, 99%, 64%),
+  hsl(278, 94%, 30%)
+);
+$red: hsl(0, 100%, 66%);
+
+// cards
+$card-width: 25rem;
+$card-spacing: 5rem;

@@ -1,0 +1,19 @@
+@use 'vars'  as *;
+
+@mixin sm-and-down{
+  @media screen and (max-width : 768px){
+    @content  ;
+  }
+}
+
+@mixin btn(){
+  background-color: $violet-3;
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 15px 0;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  font-size: 1rem;
+}

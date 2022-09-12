@@ -1,0 +1,40 @@
+@use "vars" as *;
+
+@use "mixins" as *;
+
+.success-msg {
+  width: 21.11rem;
+  display: none;
+  opacity: 0;
+  transform: translateY(150px);
+  @include sm-and-down{
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+  &.visible{
+    display: block;
+  }
+  &.fade-in{
+    animation: fadeIn 300ms ease-out forwards;
+  }
+  .icon {
+    width: 4.5rem;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+  .title {
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .sub-title {
+    margin-bottom: 3rem;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

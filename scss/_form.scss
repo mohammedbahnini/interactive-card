@@ -1,0 +1,127 @@
+@use "vars" as *;
+
+@use 'mixins' as *;
+
+form {
+  margin-left: 0;
+  width: 21rem;
+
+  @include sm-and-down{
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+  &.fading-out{
+    animation: fadingOut 300ms ease-out forwards;
+  }
+  &.hidden{
+    display: none;
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+    width: 100%;
+    position: relative;
+    @include sm-and-down{
+      margin-bottom: 1rem;
+    }
+
+    label,
+    .input-text {
+      display: block;
+      width: 100%;
+    }
+    label {
+      text-transform: uppercase;
+      color: $violet-3;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      @include sm-and-down{
+        font-size: .7rem;
+      }
+    }
+
+    .input-text {
+      position: relative;
+      input {
+        display: block;
+        height: calc(100% - 2px);
+        background-color: white;
+        width: calc(100% - 2px);
+        border: none;
+        outline: none;
+        margin-top: 1px;
+        margin-left: 1px;
+        border-radius: 5px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        color: $violet-3;
+        font-family: "Space Grotesk", sans-serif;
+        @include sm-and-down{
+          font-size: .8rem;
+        }
+        &::placeholder {
+          color: $violet-1;
+        }
+        + span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: $violet-1;
+          z-index: -1;
+          border-radius: 6px;
+        }
+
+        &:focus {
+          + span {
+            background-image: $active-border;
+          }
+        }
+      }
+    }
+    &.has-error {
+      .input-text span {
+        background: $red !important;
+      }
+    }
+    .error-msg {
+      position: absolute;
+      color: $red;
+      left: 0;
+      top: calc(100%);
+      font-size: 0.8rem;
+    }
+  }
+
+  .exp-wrapper {
+    gap: 1rem;
+  }
+  .exp-wrapper,
+  .cvc-wrapper {
+    flex: 1;
+  }
+
+  .exp-inputs,
+  .exp-cvc-wrapper {
+    gap: 1rem;
+  }
+  .exp-cvc-wrapper {
+    margin-bottom: 2rem;
+    @include sm-and-down{
+      margin-bottom: 1rem;
+    }
+  }
+
+}
+
+@keyframes fadingOut{
+  to{
+    opacity: 0;
+    transform: translateY(150px);
+  }
+}

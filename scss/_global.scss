@@ -1,0 +1,82 @@
+@use "vars" as *;
+
+@use 'mixins' as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 18px;
+}
+body {
+  font-family: "Space Grotesk", sans-serif;
+  overflow-y: hidden;
+}
+// display
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.ai-center {
+  align-items: center;
+}
+.ai-end {
+  align-items: end;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+.jc-end {
+  justify-content: end;
+}
+
+.as-start {
+  align-self: flex-start;
+}
+.as-end {
+  align-self: flex-end;
+}
+
+// colors
+.white {
+  color: $white;
+}
+.violet-1 {
+  color: $violet-1;
+}
+.violet-2 {
+  color: $violet-2;
+}
+.violet-3 {
+  color: $violet-3;
+}
+.red {
+  color: $red;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+// typo
+.uppercase {
+  text-transform: uppercase;
+}
+.text-center{
+  text-align: center
+}
+
+// form
+.btn{
+  @include btn();
+}
